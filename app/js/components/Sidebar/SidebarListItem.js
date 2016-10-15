@@ -16,7 +16,7 @@ export class SidebarListItem extends React.Component {
 
   convertToSmallIcon(icon) {
     const iconStyle = {
-      marginTop: '3px',
+      marginTop: '10px',
       marginRight: '3px',
       width: '14px',
       fill: '#a7b1c2'
@@ -31,13 +31,13 @@ export class SidebarListItem extends React.Component {
 
   render() {
     const style = { 
-      height: '30px', 
-      lineHeight: '30px',
+      height: '46px', 
+      lineHeight: '46px',
       color: '#a7b1c2',
     }
 
     const innerDivStyle = { 
-      height: '30px', 
+      height: '46px', 
       padding: '0 16px 0 48px', 
       fontSize: '13px', 
       fontWeight: '600', 

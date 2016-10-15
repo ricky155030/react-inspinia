@@ -21,7 +21,7 @@ class App extends React.Component {
     return (
       <MuiThemeProvider>
         <div>
-          <Sidebar />
+          <Sidebar router={this.props.router}/>
           <div id="page-wrapper" className="gray-bg" style={pageWrapperStyle}>
             {this.props.children}
           </div>

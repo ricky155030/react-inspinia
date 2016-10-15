@@ -34,7 +34,7 @@ export class SidebarList extends React.Component {
     this.keyIndex = 0
 
     return (
-      <List>
+      <List style={{paddingTop: '0'}}>
         {this.generateChildren(this.props.children)}
       </List>
     )

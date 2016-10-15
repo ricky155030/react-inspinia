@@ -93,7 +93,9 @@ gulp.task('build-html', function() {
       'http://' + CONFIG.HOSTNAME + ':' + CONFIG.PORT + '/static/css/bundle.css',
     ],
     js: [
-      'http://' + CONFIG.HOSTNAME + ':' + CONFIG.PORT + '/static/js/bundle.js'
+      'http://' + CONFIG.HOSTNAME + ':' + CONFIG.PORT + '/static/js/bundle.js',
+      'http://' + CONFIG.HOSTNAME + ':' + CONFIG.PORT + '/static/js/jquery.min.js',
+      'http://' + CONFIG.HOSTNAME + ':' + CONFIG.PORT + '/static/js/bootstrap.min.js'
     ]
   }
 

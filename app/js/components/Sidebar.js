@@ -8,6 +8,7 @@ import ContentSend from 'material-ui/svg-icons/content/send';
 
 import { SidebarListItem } from './Sidebar/SidebarListItem'
 import { SidebarList } from './Sidebar/SidebarList'
+import { Profile } from './Profile'
 
 class Sidebar extends React.Component {
   constructor(props) {
@@ -21,45 +22,50 @@ class Sidebar extends React.Component {
     return (
       <nav className="navbar-default navbar-static-side" role="navigation">
         <div className="sidebar-collapse">
+          <Profile 
+            name="HWKAO"
+            role="Admin"
+          />
           <SidebarList>
             <SidebarListItem 
               animated={false}
-              primaryText="Sent mail" 
+              primaryText="Dashboards" 
               leftIcon={<ContentSend />} 
+              onClick={() => this.props.router.push('/example')}
             />
             <SidebarListItem 
               animated={false}
-              primaryText="Drafts" 
+              primaryText="Layouts" 
               leftIcon={<ContentDrafts />} 
             />
             <SidebarListItem
               animated={false}
-              primaryText="Inbox"
+              primaryText="Graphs"
               leftIcon={<ContentInbox />}
               primaryTogglesNestedList={true}
               nestedItems={[
                 <SidebarListItem
-                  primaryText="Starred"
+                  primaryText="Flot Chart"
                   leftIcon={<ActionGrade />}
                 />,
                 <SidebarListItem
-                  primaryText="Sent Mail"
+                  primaryText="Chart.js"
                   leftIcon={<ContentSend />}
                   primaryTogglesNestedList={true}
                   nestedItems={[
                     <SidebarListItem 
-                      primaryText="Drafts" 
+                      primaryText="Pie Chart" 
                       leftIcon={<ContentDrafts />} 
                     />
                   ]}
                 />,
                 <SidebarListItem
-                  primaryText="Inbox"
+                  primaryText="Sparkline Chart"
                   leftIcon={<ContentInbox />}
                   primaryTogglesNestedList={true}
                   nestedItems={[
                     <SidebarListItem 
-                      primaryText="Drafts" 
+                      primaryText="Bar Chart" 
                       leftIcon={<ContentDrafts />} 
                     />
                   ]}
