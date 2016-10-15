@@ -4,6 +4,7 @@ import React from 'react'
 import * as Colors from 'material-ui/styles/colors';
 import { ListItem } from 'material-ui/List';
 import IconArrowLeft from 'material-ui/svg-icons/hardware/keyboard-arrow-left';
+import IconArrowDown from 'material-ui/svg-icons/hardware/keyboard-arrow-down';
 
 export class SidebarListItem extends React.Component {
   static defaultProps = {
@@ -12,6 +13,9 @@ export class SidebarListItem extends React.Component {
 
   constructor(props) {
     super(props)
+    this.state = {
+      nestedOpen: false
+    }
   }
 
   convertToSmallIcon(icon) {
@@ -58,7 +62,8 @@ export class SidebarListItem extends React.Component {
         style={style}
         innerDivStyle={innerDivStyle}
         leftIcon={this.convertToSmallIcon(this.props.leftIcon)}
-        rightIcon={this.props.nestedItems ? this.convertToSmallIcon(<IconArrowLeft />) : null}
+        rightIcon={this.props.nestedItems ? (this.state.nestedOpen ? this.convertToSmallIcon(<IconArrowDown />) : this.convertToSmallIcon(<IconArrowLeft />)) : null}
+        onNestedListToggle={(item) => this.setState({nestedOpen: item.state.open})}
         autoGenerateNestedIndicator={false}
         onTouchTap={() => {
           this.props.onActive(this.props.value)

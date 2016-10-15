@@ -12,6 +12,10 @@ export class SidebarList extends React.Component {
     }
   }
 
+  componentDidUpdate() {
+    console.log('update')
+  }
+
   generateChildren(children) {
     this.keyIndex += 1
 
@@ -20,7 +24,7 @@ export class SidebarList extends React.Component {
         return React.cloneElement(child, {
           key: this.keyIndex,
           value: this.keyIndex,
-          onActive: (value) => this.setState({active: value}),
+          onActive: (value) => {console.log(this.state); this.setState({active: value})},
           active: this.state.active,
           nestedItems: this.generateChildren(child.props.nestedItems)
         })
