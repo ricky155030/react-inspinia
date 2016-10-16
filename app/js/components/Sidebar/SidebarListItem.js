@@ -58,11 +58,12 @@ export class SidebarListItem extends React.Component {
     return (
       <ListItem
         {...this.props}
+        children={[]}
         className={this.props.animated ? "animated fadeInDown" : ""}
         style={style}
         innerDivStyle={innerDivStyle}
         leftIcon={this.convertToSmallIcon(this.props.leftIcon)}
-        rightIcon={this.props.nestedItems ? (this.state.nestedOpen ? this.convertToSmallIcon(<IconArrowDown />) : this.convertToSmallIcon(<IconArrowLeft />)) : null}
+        rightIcon={this.props.children ? (this.state.nestedOpen ? this.convertToSmallIcon(<IconArrowDown />) : this.convertToSmallIcon(<IconArrowLeft />)) : null}
         onNestedListToggle={(item) => this.setState({nestedOpen: item.state.open})}
         autoGenerateNestedIndicator={false}
         onTouchTap={() => {

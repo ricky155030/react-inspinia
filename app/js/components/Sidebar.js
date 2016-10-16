@@ -13,9 +13,6 @@ import { Profile } from './Profile'
 class Sidebar extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {
-      open: true
-    }
   }
 
   render() {
@@ -43,35 +40,36 @@ class Sidebar extends React.Component {
               primaryText="Graphs"
               leftIcon={<ContentInbox />}
               primaryTogglesNestedList={true}
-              nestedItems={[
-                <SidebarListItem
-                  primaryText="Flot Chart"
-                  leftIcon={<ActionGrade />}
-                />,
-                <SidebarListItem
-                  primaryText="Chart.js"
-                  leftIcon={<ContentSend />}
-                  primaryTogglesNestedList={true}
-                  nestedItems={[
-                    <SidebarListItem 
-                      primaryText="Pie Chart" 
-                      leftIcon={<ContentDrafts />} 
-                    />
-                  ]}
-                />,
-                <SidebarListItem
-                  primaryText="Sparkline Chart"
-                  leftIcon={<ContentInbox />}
-                  primaryTogglesNestedList={true}
-                  nestedItems={[
-                    <SidebarListItem 
-                      primaryText="Bar Chart" 
-                      leftIcon={<ContentDrafts />} 
-                    />
-                  ]}
-                />,
-              ]}
-            />
+            >
+              <SidebarListItem
+                primaryText="Flot Chart"
+                leftIcon={<ActionGrade />}
+              />
+              <SidebarListItem
+                primaryText="Chart.js"
+                leftIcon={<ContentSend />}
+                primaryTogglesNestedList={true}
+              >
+                <SidebarListItem 
+                  primaryText="Pie Chart" 
+                  leftIcon={<ContentDrafts />} 
+                />
+              </SidebarListItem>
+            </SidebarListItem>
+            <SidebarListItem
+              primaryText="Sparkline Chart"
+              leftIcon={<ContentInbox />}
+              primaryTogglesNestedList={true}
+            >
+              <SidebarListItem 
+                primaryText="Bar Chart" 
+                leftIcon={<ContentDrafts />} 
+              />
+              <SidebarListItem 
+                primaryText="Bar Chart" 
+                leftIcon={<ContentDrafts />} 
+              />
+            </SidebarListItem>
           </SidebarList>
         </div>
       </nav>

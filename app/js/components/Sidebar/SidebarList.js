@@ -1,6 +1,7 @@
 'use strict';
 
 import React from 'react'
+import { isArray } from 'lodash'
 import * as Colors from 'material-ui/styles/colors';
 import { List } from 'material-ui/List';
 
@@ -12,25 +13,31 @@ export class SidebarList extends React.Component {
     }
   }
 
-  componentDidUpdate() {
-    console.log('update')
-  }
-
   generateChildren(children) {
+    const arr = []
     this.keyIndex += 1
 
-    if(typeof(children) == 'object') {
+    if(!isArray(children) && children) {
+      arr.push(children) 
+      children = arr
+    }
+    
+    if(children) {
       return children.map((child) => {
-        return React.cloneElement(child, {
-          key: this.keyIndex,
-          value: this.keyIndex,
-          onActive: (value) => {console.log(this.state); this.setState({active: value})},
-          active: this.state.active,
-          nestedItems: this.generateChildren(child.props.nestedItems)
-        })
+        if(child.type.name == 'SidebarListItem') {
+          return React.cloneElement(child, {
+            key: this.keyIndex,
+            value: this.keyIndex,
+            onActive: (value) => {this.setState({active: value})},
+            active: this.state.active,
+            nestedItems: this.generateChildren(child.props.children)
+          })
+        } else {
+          return null
+        }
       })
     } else {
-      return children
+      return []
     }
   }
 
