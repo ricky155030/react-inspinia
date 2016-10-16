@@ -55,20 +55,20 @@ class Sidebar extends React.Component {
                   leftIcon={<ContentDrafts />} 
                 />
               </SidebarListItem>
-            </SidebarListItem>
-            <SidebarListItem
-              primaryText="Sparkline Chart"
-              leftIcon={<ContentInbox />}
-              primaryTogglesNestedList={true}
-            >
-              <SidebarListItem 
-                primaryText="Bar Chart" 
-                leftIcon={<ContentDrafts />} 
-              />
-              <SidebarListItem 
-                primaryText="Bar Chart" 
-                leftIcon={<ContentDrafts />} 
-              />
+              <SidebarListItem
+                primaryText="Sparkline Chart"
+                leftIcon={<ContentInbox />}
+                primaryTogglesNestedList={true}
+              >
+                <SidebarListItem 
+                  primaryText="Bar Chart" 
+                  leftIcon={<ContentDrafts />} 
+                />
+                <SidebarListItem 
+                  primaryText="Line Chart" 
+                  leftIcon={<ContentDrafts />} 
+                />
+              </SidebarListItem>
             </SidebarListItem>
           </SidebarList>
         </div>

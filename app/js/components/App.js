@@ -1,7 +1,6 @@
 'use strict';
 
 import React from 'react';
-import { Grid, Row, Col } from 'react-flexbox-grid';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import Sidebar from './Sidebar'
@@ -9,7 +8,8 @@ import Sidebar from './Sidebar'
 injectTapEventPlugin();
 
 const pageWrapperStyle = {
-  minHeight: '966px'
+  minHeight: '966px',
+  padding: '0px 0px'
 }
 
 class App extends React.Component {
