@@ -38,8 +38,8 @@ export default class extends React.Component {
 
   static defaultProps = {
     header: false,
-    headerColor: Colors.grey400,
-    titleColor: Colors.grey100,
+    headerColor: '#FFF',
+    titleColor: Colors.grey500,
     avatar: IconRefresh
   }
 
@@ -50,23 +50,26 @@ export default class extends React.Component {
   render() {
     const headerStyle = { 
       backgroundColor: this.props.headerColor, 
-      height: '30px', 
-      paddingTop: '6px',
-      display: 'flex'
+      height: '40px', 
+      paddingTop: '10px',
+      display: 'flex',
+      borderBottom: '1px solid ' + Colors.grey300,
+      borderTop: '2px solid ' + Colors.grey300
     }
 
     const headerTitleStyle = { 
       color: this.props.titleColor,
       overflow: 'hidden',
       whiteSpace: 'nowrap',
-      textOverflow: 'ellipsis',
+      textOverflow: 'ellipsis'
     }
 
     const headerTextStyle = { 
       paddingRight: 0,
-      height: '30px',
+      height: '40px',
       overflow: 'hidden',
       whiteSpace: 'nowrap',
+      fontWeight: 600
     }
 
     const textStyle = { 
