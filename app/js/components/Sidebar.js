@@ -10,6 +10,14 @@ import { SidebarListItem } from './Sidebar/SidebarListItem'
 import { SidebarList } from './Sidebar/SidebarList'
 import { Profile } from './Profile'
 
+const sidebarStyle = {
+  width: '220px',
+  position: 'fixed',
+  top: '64px',
+  bottom: 0,
+  overflowY: 'scroll'
+}
+
 class Sidebar extends React.Component {
   constructor(props) {
     super(props)
@@ -17,62 +25,95 @@ class Sidebar extends React.Component {
 
   render() {
     return (
-      <nav className="navbar-default navbar-static-side" role="navigation">
-        <div className="sidebar-collapse">
-          <Profile 
-            name="HWKAO"
-            role="Admin"
+      <div id="hidden-scrollbar" style={sidebarStyle}>
+        <Profile 
+          name="HWKAO"
+          role="Admin"
+        />
+        <SidebarList>
+          <SidebarListItem 
+            animated={false}
+            primaryText="Dashboards" 
+            leftIcon={<ContentSend />} 
+            onClick={() => this.props.router.push('/example')}
           />
-          <SidebarList>
-            <SidebarListItem 
-              animated={false}
-              primaryText="Dashboards" 
-              leftIcon={<ContentSend />} 
-              onClick={() => this.props.router.push('/example')}
-            />
-            <SidebarListItem 
-              animated={false}
-              primaryText="Layouts" 
-              leftIcon={<ContentDrafts />} 
+          <SidebarListItem 
+            animated={false}
+            primaryText="Layouts" 
+            leftIcon={<ContentDrafts />} 
+          />
+          <SidebarListItem
+            animated={false}
+            primaryText="Graphs"
+            leftIcon={<ContentInbox />}
+            primaryTogglesNestedList={true}
+          >
+            <SidebarListItem
+              primaryText="Flot Chart"
+              leftIcon={<ActionGrade />}
             />
             <SidebarListItem
-              animated={false}
-              primaryText="Graphs"
+              primaryText="Chart.js"
+              leftIcon={<ContentSend />}
+              primaryTogglesNestedList={true}
+            >
+              <SidebarListItem 
+                primaryText="Pie Chart" 
+                leftIcon={<ContentDrafts />} 
+              />
+            </SidebarListItem>
+            <SidebarListItem
+              primaryText="Sparkline Chart"
               leftIcon={<ContentInbox />}
               primaryTogglesNestedList={true}
             >
-              <SidebarListItem
-                primaryText="Flot Chart"
-                leftIcon={<ActionGrade />}
+              <SidebarListItem 
+                primaryText="Bar Chart" 
+                leftIcon={<ContentDrafts />} 
               />
-              <SidebarListItem
-                primaryText="Chart.js"
-                leftIcon={<ContentSend />}
-                primaryTogglesNestedList={true}
-              >
-                <SidebarListItem 
-                  primaryText="Pie Chart" 
-                  leftIcon={<ContentDrafts />} 
-                />
-              </SidebarListItem>
-              <SidebarListItem
-                primaryText="Sparkline Chart"
-                leftIcon={<ContentInbox />}
-                primaryTogglesNestedList={true}
-              >
-                <SidebarListItem 
-                  primaryText="Bar Chart" 
-                  leftIcon={<ContentDrafts />} 
-                />
-                <SidebarListItem 
-                  primaryText="Line Chart" 
-                  leftIcon={<ContentDrafts />} 
-                />
-              </SidebarListItem>
+              <SidebarListItem 
+                primaryText="Line Chart" 
+                leftIcon={<ContentDrafts />} 
+              />
             </SidebarListItem>
-          </SidebarList>
-        </div>
-      </nav>
+          </SidebarListItem>
+          <SidebarListItem
+            animated={false}
+            primaryText="Graphs"
+            leftIcon={<ContentInbox />}
+            primaryTogglesNestedList={true}
+          >
+            <SidebarListItem
+              primaryText="Flot Chart"
+              leftIcon={<ActionGrade />}
+            />
+            <SidebarListItem
+              primaryText="Chart.js"
+              leftIcon={<ContentSend />}
+              primaryTogglesNestedList={true}
+            >
+              <SidebarListItem 
+                primaryText="Pie Chart" 
+                leftIcon={<ContentDrafts />} 
+              />
+            </SidebarListItem>
+            <SidebarListItem
+              primaryText="Sparkline Chart"
+              leftIcon={<ContentInbox />}
+              primaryTogglesNestedList={true}
+            >
+              <SidebarListItem 
+                primaryText="Bar Chart" 
+                leftIcon={<ContentDrafts />} 
+              />
+              <SidebarListItem 
+                primaryText="Line Chart" 
+                leftIcon={<ContentDrafts />} 
+              />
+            </SidebarListItem>
+          </SidebarListItem>
+        </SidebarList>
+      </div>
     );
   }
 };
